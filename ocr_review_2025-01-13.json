@@ -1,0 +1,94 @@
+[
+  {
+    "original": "•현미밥/나트륨줄인배추김치",
+    "cleaned": "현미밥/나트륨줄인배추김치",
+    "reasons": [
+      "bullet_garbage"
+    ],
+    "date": "2025-01-13",
+    "meal_time": "중식",
+    "corner": "샐러드바"
+  },
+  {
+    "original": "•현미밥/나트륨줄인배추김치",
+    "cleaned": "현미밥/나트륨줄인배추김치",
+    "reasons": [
+      "bullet_garbage"
+    ],
+    "date": "2025-01-13",
+    "meal_time": "석식",
+    "corner": "샐러드바"
+  },
+  {
+    "original": "창잉터우(돼지고기마늘쫑덮밥)&계란후라이",
+    "cleaned": "창잉터우(돼지고기마늘쫑덮밥)&계란후라이",
+    "reasons": [
+      "merge_amp"
+    ],
+    "original_parts": null,
+    "date": "2025-01-14",
+    "meal_time": "중식",
+    "corner": "팝업B"
+  },
+  {
+    "original": "(201)",
+    "cleaned": "",
+    "reasons": [
+      "paren_numeric"
+    ],
+    "date": "2025-01-14",
+    "meal_time": "석식",
+    "corner": "샐러드"
+  },
+  {
+    "original": "BALANCE배추김치",
+    "cleaned": "배추김치",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-01-15",
+    "meal_time": "중식",
+    "corner": "한식B"
+  },
+  {
+    "original": "_",
+    "cleaned": "",
+    "reasons": [
+      "underscore_garbage"
+    ],
+    "date": "2025-01-17",
+    "meal_time": "중식",
+    "corner": "한식B"
+  },
+  {
+    "original": "비건햄야채김밥(오이)&갈릭표고강정",
+    "cleaned": "비건햄야채김밥(오이)&갈릭표고강정",
+    "reasons": [
+      "merge_amp"
+    ],
+    "original_parts": null,
+    "date": "2025-01-17",
+    "meal_time": "중식",
+    "corner": "비건"
+  },
+  {
+    "original": "•매콤어묵김밥&갈릭닭강정",
+    "cleaned": "매콤어묵김밥&갈릭닭강정",
+    "reasons": [
+      "bullet_garbage"
+    ],
+    "date": "2025-01-17",
+    "meal_time": "중식",
+    "corner": "버거&델리"
+  },
+  {
+    "original": "치킨스테이크카펠리니샐러드|(오이)",
+    "cleaned": "치킨스테이크카펠리니샐러드(오이)",
+    "reasons": [
+      "takeout_merge"
+    ],
+    "date": "2025-01-14",
+    "meal_time": "중식",
+    "corner": "샐러드"
+  }
+]
