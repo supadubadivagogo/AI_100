@@ -1,0 +1,73 @@
+[
+  {
+    "original": "•현미밥/나트륨줄인배추김치",
+    "cleaned": "현미밥/나트륨줄인배추김치",
+    "reasons": [
+      "bullet_garbage"
+    ],
+    "date": "2025-02-03",
+    "meal_time": "중식",
+    "corner": "샐러드바"
+  },
+  {
+    "original": "•비건햄야채김밥&컵과일",
+    "cleaned": "비건햄야채김밥&컵과일",
+    "reasons": [
+      "bullet_garbage"
+    ],
+    "date": "2025-02-04",
+    "meal_time": "중식",
+    "corner": "비건"
+  },
+  {
+    "original": "KKPP소이갈릭포크밸리",
+    "cleaned": "소이갈릭포크밸리",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-02-05",
+    "meal_time": "중식",
+    "corner": "한식A"
+  },
+  {
+    "original": "BALANCE포기김치",
+    "cleaned": "포기김치",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-02-05",
+    "meal_time": "중식",
+    "corner": "한식B"
+  },
+  {
+    "original": "•현미밥/나트륨줄인배추김치",
+    "cleaned": "현미밥/나트륨줄인배추김치",
+    "reasons": [
+      "bullet_garbage"
+    ],
+    "date": "2025-02-07",
+    "meal_time": "중식",
+    "corner": "샐러드바"
+  },
+  {
+    "original": "•분보싸오샐러드",
+    "cleaned": "분보싸오샐러드",
+    "reasons": [
+      "bullet_garbage"
+    ],
+    "date": "2025-02-07",
+    "meal_time": "중식",
+    "corner": "샐러드"
+  },
+  {
+    "original": "OURHOME",
+    "cleaned": "",
+    "reasons": [
+      "brand",
+      "english_removed"
+    ],
+    "date": "2025-02-07",
+    "meal_time": "석식",
+    "corner": "버거&델리"
+  }
+]

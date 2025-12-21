@@ -1,0 +1,74 @@
+[
+  {
+    "original": "[우렁강된장쌈밥정식set]",
+    "cleaned": "[우렁강된장쌈밥정식]",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-02-24",
+    "meal_time": "중식",
+    "corner": "한식A"
+  },
+  {
+    "original": "훈제오리부추김밥&어니언가라아게",
+    "cleaned": "훈제오리부추김밥&어니언가라아게",
+    "reasons": [
+      "merge_amp"
+    ],
+    "original_parts": null,
+    "date": "2025-02-24",
+    "meal_time": "중식",
+    "corner": "버거&델리"
+  },
+  {
+    "original": "훈제오리부추김밥&어니언가라아게",
+    "cleaned": "훈제오리부추김밥&어니언가라아게",
+    "reasons": [
+      "merge_amp"
+    ],
+    "original_parts": null,
+    "date": "2025-02-24",
+    "meal_time": "석식",
+    "corner": "버거&델리"
+  },
+  {
+    "original": "BALANCE알타리김치",
+    "cleaned": "알타리김치",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-02-26",
+    "meal_time": "중식",
+    "corner": "한식B"
+  },
+  {
+    "original": "태국식BBQ랩",
+    "cleaned": "태국식랩",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-02-26",
+    "meal_time": "중식",
+    "corner": "버거&델리"
+  },
+  {
+    "original": "태국식BBQ랩",
+    "cleaned": "태국식랩",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-02-26",
+    "meal_time": "석식",
+    "corner": "버거&델리"
+  },
+  {
+    "original": "OURHOMET",
+    "cleaned": "",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-02-28",
+    "meal_time": "석식",
+    "corner": "버거&델리"
+  }
+]

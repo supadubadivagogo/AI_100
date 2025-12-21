@@ -1,0 +1,52 @@
+[
+  {
+    "original": "•현미밥/나트륨줄인배추김치",
+    "cleaned": "현미밥/나트륨줄인배추김치",
+    "reasons": [
+      "bullet_garbage"
+    ],
+    "date": "2024-12-30",
+    "meal_time": "석식",
+    "corner": "샐러드바"
+  },
+  {
+    "original": "돈LA갈비구이*치커리유자무침",
+    "cleaned": "돈갈비구이*치커리유자무침",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-01-02",
+    "meal_time": "중식",
+    "corner": "한식B"
+  },
+  {
+    "original": "돈LA갈비구이*치커리유자무침",
+    "cleaned": "돈갈비구이*치커리유자무침",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-01-02",
+    "meal_time": "중식",
+    "corner": "팝업A"
+  },
+  {
+    "original": "BALANCE깍두기",
+    "cleaned": "깍두기",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-01-03",
+    "meal_time": "중식",
+    "corner": "한식B"
+  },
+  {
+    "original": "TOURHOME",
+    "cleaned": "",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-01-03",
+    "meal_time": "석식",
+    "corner": "버거&델리"
+  }
+]

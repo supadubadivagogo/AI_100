@@ -1,0 +1,53 @@
+[
+  {
+    "original": "•현미밥/나트륨줄인배추김치",
+    "cleaned": "현미밥/나트륨줄인배추김치",
+    "reasons": [
+      "bullet_garbage"
+    ],
+    "date": "2025-01-06",
+    "meal_time": "석식",
+    "corner": "샐러드바"
+  },
+  {
+    "original": "•대만식마늘쫑볶음밥",
+    "cleaned": "대만식마늘쫑볶음밥",
+    "reasons": [
+      "bullet_garbage"
+    ],
+    "date": "2025-01-07",
+    "meal_time": "중식",
+    "corner": "라이스&누들"
+  },
+  {
+    "original": "BALANCE알타리김치",
+    "cleaned": "알타리김치",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-01-08",
+    "meal_time": "중식",
+    "corner": "한식B"
+  },
+  {
+    "original": "BITES",
+    "cleaned": "",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-01-08",
+    "meal_time": "중식",
+    "corner": "한식B"
+  },
+  {
+    "original": "OURHOME",
+    "cleaned": "",
+    "reasons": [
+      "brand",
+      "english_removed"
+    ],
+    "date": "2025-01-10",
+    "meal_time": "석식",
+    "corner": "버거&델리"
+  }
+]

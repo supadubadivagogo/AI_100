@@ -1,0 +1,72 @@
+[
+  {
+    "original": "•현미밥/나트륨줄인배추김치",
+    "cleaned": "현미밥/나트륨줄인배추김치",
+    "reasons": [
+      "bullet_garbage"
+    ],
+    "date": "2025-01-20",
+    "meal_time": "중식",
+    "corner": "샐러드바"
+  },
+  {
+    "original": "•현미밥/나트륨줄인배추김치",
+    "cleaned": "현미밥/나트륨줄인배추김치",
+    "reasons": [
+      "bullet_garbage"
+    ],
+    "date": "2025-01-20",
+    "meal_time": "석식",
+    "corner": "샐러드바"
+  },
+  {
+    "original": "[우렁강된장제육쌈밥set]",
+    "cleaned": "[우렁강된장제육쌈밥]",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-01-21",
+    "meal_time": "중식",
+    "corner": "한식A"
+  },
+  {
+    "original": "BALANCE섞박지",
+    "cleaned": "섞박지",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-01-22",
+    "meal_time": "중식",
+    "corner": "한식B"
+  },
+  {
+    "original": "•현미밥/나트륨줄인배추김치",
+    "cleaned": "현미밥/나트륨줄인배추김치",
+    "reasons": [
+      "bullet_garbage"
+    ],
+    "date": "2025-01-22",
+    "meal_time": "중식",
+    "corner": "샐러드바"
+  },
+  {
+    "original": "•현미밥/나트륨줄인배추김치",
+    "cleaned": "현미밥/나트륨줄인배추김치",
+    "reasons": [
+      "bullet_garbage"
+    ],
+    "date": "2025-01-24",
+    "meal_time": "중식",
+    "corner": "샐러드바"
+  },
+  {
+    "original": "TOURHOME",
+    "cleaned": "",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-01-24",
+    "meal_time": "석식",
+    "corner": "버거&델리"
+  }
+]

@@ -1,0 +1,194 @@
+[
+  {
+    "id": "2025-02-03",
+    "rule": "weekday_1550_closest",
+    "lunch": "샐러드",
+    "lunch_kcal": 536,
+    "dinner": "한식B",
+    "dinner_kcal": 1022,
+    "total_kcal": 1558,
+    "diff_from_1550": 8
+  },
+  {
+    "id": "2025-02-04",
+    "rule": "weekday_1550_closest",
+    "lunch": "팝업B",
+    "lunch_kcal": 821,
+    "dinner": "샐러드",
+    "dinner_kcal": 726,
+    "total_kcal": 1547,
+    "diff_from_1550": 3
+  },
+  {
+    "id": "2025-02-05",
+    "rule": "weekday_1550_closest",
+    "lunch": "팝업B",
+    "lunch_kcal": 1108,
+    "dinner": "샐러드",
+    "dinner_kcal": 429,
+    "total_kcal": 1537,
+    "diff_from_1550": 13
+  },
+  {
+    "id": "2025-02-06",
+    "rule": "weekday_1550_closest",
+    "lunch": "한식B",
+    "lunch_kcal": 1017,
+    "dinner": "샐러드",
+    "dinner_kcal": 657,
+    "total_kcal": 1674,
+    "diff_from_1550": 124
+  },
+  {
+    "id": "2025-02-07",
+    "rule": "friday_min_lunch",
+    "lunch": "비건",
+    "lunch_kcal": 482,
+    "total_kcal": 482,
+    "diff_from_1550": 1068
+  },
+  {
+    "id": "2025-02-10",
+    "rule": "weekday_1550_closest",
+    "lunch": "샐러드",
+    "lunch_kcal": 613,
+    "dinner": "한식B",
+    "dinner_kcal": 977,
+    "total_kcal": 1590,
+    "diff_from_1550": 40
+  },
+  {
+    "id": "2025-02-11",
+    "rule": "weekday_1550_closest",
+    "lunch": "비건",
+    "lunch_kcal": 560,
+    "dinner": "한식B",
+    "dinner_kcal": 974,
+    "total_kcal": 1534,
+    "diff_from_1550": 16
+  },
+  {
+    "id": "2025-02-12",
+    "rule": "weekday_1550_closest",
+    "lunch": "한식B",
+    "lunch_kcal": 979,
+    "dinner": "샐러드",
+    "dinner_kcal": 588,
+    "total_kcal": 1567,
+    "diff_from_1550": 17
+  },
+  {
+    "id": "2025-02-13",
+    "rule": "weekday_1550_closest",
+    "lunch": "라이스&누들",
+    "lunch_kcal": 848,
+    "dinner": "샐러드",
+    "dinner_kcal": 699,
+    "total_kcal": 1547,
+    "diff_from_1550": 3
+  },
+  {
+    "id": "2025-02-14",
+    "rule": "friday_min_lunch",
+    "lunch": "버거&델리",
+    "lunch_kcal": 564,
+    "total_kcal": 564,
+    "diff_from_1550": 986
+  },
+  {
+    "id": "2025-02-17",
+    "rule": "weekday_1550_closest",
+    "lunch": "라이스&누들",
+    "lunch_kcal": 1062,
+    "dinner": "샐러드",
+    "dinner_kcal": 584,
+    "total_kcal": 1646,
+    "diff_from_1550": 96
+  },
+  {
+    "id": "2025-02-18",
+    "rule": "weekday_1550_closest",
+    "lunch": "한식A",
+    "lunch_kcal": 1126,
+    "dinner": "샐러드",
+    "dinner_kcal": 537,
+    "total_kcal": 1663,
+    "diff_from_1550": 113
+  },
+  {
+    "id": "2025-02-19",
+    "rule": "weekday_1550_closest",
+    "lunch": "한식B",
+    "lunch_kcal": 970,
+    "dinner": "버거&델리",
+    "dinner_kcal": 574,
+    "total_kcal": 1544,
+    "diff_from_1550": 6
+  },
+  {
+    "id": "2025-02-20",
+    "rule": "weekday_1550_closest",
+    "lunch": "비건",
+    "lunch_kcal": 459,
+    "dinner": "한식B",
+    "dinner_kcal": 1079,
+    "total_kcal": 1538,
+    "diff_from_1550": 12
+  },
+  {
+    "id": "2025-02-21",
+    "rule": "friday_min_lunch",
+    "lunch": "비건",
+    "lunch_kcal": 259,
+    "total_kcal": 259,
+    "diff_from_1550": 1291
+  },
+  {
+    "id": "2025-02-24",
+    "rule": "weekday_1550_closest",
+    "lunch": "양식",
+    "lunch_kcal": 1124,
+    "dinner": "샐러드",
+    "dinner_kcal": 503,
+    "total_kcal": 1627,
+    "diff_from_1550": 77
+  },
+  {
+    "id": "2025-02-25",
+    "rule": "weekday_1550_closest",
+    "lunch": "버거&델리",
+    "lunch_kcal": 486,
+    "dinner": "한식B",
+    "dinner_kcal": 1041,
+    "total_kcal": 1527,
+    "diff_from_1550": 23
+  },
+  {
+    "id": "2025-02-26",
+    "rule": "weekday_1550_closest",
+    "lunch": "샐러드",
+    "lunch_kcal": 781,
+    "dinner": "샐러드",
+    "dinner_kcal": 781,
+    "total_kcal": 1562,
+    "diff_from_1550": 12
+  },
+  {
+    "id": "2025-02-27",
+    "rule": "weekday_1550_closest",
+    "lunch": "팝업B",
+    "lunch_kcal": 894,
+    "dinner": "버거&델리",
+    "dinner_kcal": 672,
+    "total_kcal": 1566,
+    "diff_from_1550": 16
+  },
+  {
+    "id": "2025-02-28",
+    "rule": "friday_min_lunch",
+    "lunch": "샐러드",
+    "lunch_kcal": 472,
+    "total_kcal": 472,
+    "diff_from_1550": 1078
+  }
+]

@@ -80,13 +80,53 @@ def kmeans_1d(xs):
 
 def column_bounds(words, height):
     xs = []
-    for w in words:
-        if w["y"] > height * 0.12:
-            continue
-        for d in re.findall(r"\d+", w["text"]):
-            val = int(d)
-            if 10 <= val <= 31:
-                xs.append(w["x"])
+    top_words = [w for w in words if w["y"] <= height * 0.12]
+    top_words.sort(key=lambda w: (w["y"], w["x"]))
+    lines = []
+    cur = []
+    cur_y = None
+    for w in top_words:
+        if cur_y is None or abs(w["y"] - cur_y) > 12:
+            if cur:
+                lines.append(cur)
+            cur = [w]
+            cur_y = w["y"]
+        else:
+            cur.append(w)
+    if cur:
+        lines.append(cur)
+
+    # Prefer day tokens (e.g., "06" followed by "일", or "1/6").
+    for line in lines:
+        line_sorted = sorted(line, key=lambda w: w["x"])
+        for idx, w in enumerate(line_sorted):
+            text = w["text"]
+            m = re.fullmatch(r"(\d{1,2})일", text)
+            if m:
+                day = int(m.group(1))
+                if 1 <= day <= 31:
+                    xs.append(w["x"])
+                continue
+            m = re.fullmatch(r"(\d{1,2})\s*/\s*(\d{1,2})", text)
+            if m:
+                day = int(m.group(2))
+                if 1 <= day <= 31:
+                    xs.append(w["x"])
+                continue
+            if re.fullmatch(r"\d{1,2}", text):
+                if idx + 1 < len(line_sorted) and line_sorted[idx + 1]["text"] == "일":
+                    day = int(text)
+                    if 1 <= day <= 31:
+                        xs.append(w["x"])
+    if len(xs) < 5:
+        xs = []
+        for w in words:
+            if w["y"] > height * 0.12:
+                continue
+            for d in re.findall(r"\d+", w["text"]):
+                val = int(d)
+                if 10 <= val <= 31:
+                    xs.append(w["x"])
     centers = kmeans_1d(xs)
     col_width = float(centers[1] - centers[0])
     bounds = [(c - col_width / 2, c + col_width / 2) for c in centers]

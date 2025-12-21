@@ -1,0 +1,92 @@
+[
+  {
+    "original": "KKPP제육볶음KAKAO",
+    "cleaned": "제육볶음",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-02-18",
+    "meal_time": "중식",
+    "corner": "한식A"
+  },
+  {
+    "original": "AGIT\"전주식돌솥비빔밥*계란후라이",
+    "cleaned": "\"전주식돌솥비빔밥*계란후라이",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-02-19",
+    "meal_time": "중식",
+    "corner": "한식A"
+  },
+  {
+    "original": "BALANCE돈목살구이",
+    "cleaned": "돈목살구이",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-02-19",
+    "meal_time": "중식",
+    "corner": "팝업A"
+  },
+  {
+    "original": "BITES",
+    "cleaned": "",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-02-19",
+    "meal_time": "중식",
+    "corner": "팝업A"
+  },
+  {
+    "original": "KKPP감자떡볶이",
+    "cleaned": "감자떡볶이",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-02-20",
+    "meal_time": "중식",
+    "corner": "팝업B"
+  },
+  {
+    "original": "현미밥/나트륨줄인배추김치|불고기메밀소바샐러드",
+    "cleaned": "현미밥/나트륨줄인배추김치불고기메밀소바샐러드",
+    "reasons": [
+      "takeout_merge"
+    ],
+    "date": "2025-02-17",
+    "meal_time": "석식",
+    "corner": "샐러드"
+  },
+  {
+    "original": "잡곡밥/나트륨줄인배추김치|그릴드연어포케",
+    "cleaned": "잡곡밥/나트륨줄인배추김치그릴드연어포케",
+    "reasons": [
+      "takeout_merge"
+    ],
+    "date": "2025-02-18",
+    "meal_time": "석식",
+    "corner": "샐러드"
+  },
+  {
+    "original": "현미밥/나트륨줄인배추김치|타볼레핫치킨샐러드",
+    "cleaned": "현미밥/나트륨줄인배추김치타볼레핫치킨샐러드",
+    "reasons": [
+      "takeout_merge"
+    ],
+    "date": "2025-02-19",
+    "meal_time": "석식",
+    "corner": "샐러드"
+  },
+  {
+    "original": "잡곡밥/나트륨줄인배추김치|갈락마요쉬림프브리또볼",
+    "cleaned": "잡곡밥/나트륨줄인배추김치갈락마요쉬림프브리또볼",
+    "reasons": [
+      "takeout_merge"
+    ],
+    "date": "2025-02-20",
+    "meal_time": "석식",
+    "corner": "샐러드"
+  }
+]

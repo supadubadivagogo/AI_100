@@ -1,0 +1,95 @@
+[
+  {
+    "original": "JOONGANGMAJANG",
+    "cleaned": "",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-02-11",
+    "meal_time": "중식",
+    "corner": "한식A"
+  },
+  {
+    "original": "BALANCE열무김치/부럼",
+    "cleaned": "열무김치/부럼",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-02-12",
+    "meal_time": "중식",
+    "corner": "한식B"
+  },
+  {
+    "original": "BITES",
+    "cleaned": "",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-02-12",
+    "meal_time": "중식",
+    "corner": "한식B"
+  },
+  {
+    "original": "소불고기깻잎김밥&순대강정",
+    "cleaned": "소불고기깻잎김밥&순대강정",
+    "reasons": [
+      "merge_amp"
+    ],
+    "original_parts": null,
+    "date": "2025-02-12",
+    "meal_time": "중식",
+    "corner": "버거&델리"
+  },
+  {
+    "original": "소불고기깻잎김밥&순대강정",
+    "cleaned": "소불고기깻잎김밥&순대강정",
+    "reasons": [
+      "merge_amp"
+    ],
+    "original_parts": null,
+    "date": "2025-02-12",
+    "meal_time": "석식",
+    "corner": "버거&델리"
+  },
+  {
+    "original": "KKPP녹진비빔면",
+    "cleaned": "녹진비빔면",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-02-13",
+    "meal_time": "중식",
+    "corner": "팝업B"
+  },
+  {
+    "original": "BLT샌드위치",
+    "cleaned": "샌드위치",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-02-13",
+    "meal_time": "중식",
+    "corner": "버거&델리"
+  },
+  {
+    "original": "BLT샌드위치",
+    "cleaned": "샌드위치",
+    "reasons": [
+      "english_removed"
+    ],
+    "date": "2025-02-13",
+    "meal_time": "석식",
+    "corner": "버거&델리"
+  },
+  {
+    "original": "OURHOME",
+    "cleaned": "",
+    "reasons": [
+      "brand",
+      "english_removed"
+    ],
+    "date": "2025-02-14",
+    "meal_time": "석식",
+    "corner": "버거&델리"
+  }
+]
