@@ -1,0 +1,20 @@
+GCP Vision OCR 로컬 라인 템플릿 기반 복원 로그
+
+원본 기준
+- gcp_vision_ocr_4x_lines_local.txt (로컬 OCR 줄 위치 + GCP OCR 단어 매핑)
+
+1) C 컴파일에 필요한 헤더 추가
+   - #include <stdio.h>, #include <string.h>
+
+2) 고정 출력 토큰 복원
+   - 주석(//) 뒤의 c_s/c_n/c_v는 실행되지 않으므로 출력 제외
+   - OCR 코드 본문에서 E/Q/X/"CURSED" 출력만 유지
+
+3) 입력 비교 로직 복원
+   - OCR: q="TL"; q+="AH"; q=q[::-1] -> q = "HALT"
+   - OCR: a="G"; a+="NO"; b="R"; b+="W"; a+=b; a=a[::-1] -> a = "WRONG"
+   - 입력이 "HALT"가 아니면 "WRONG" 출력
+
+4) C 문법이 아닌 토큰 처리
+   - lambda, input, eval, 8**8, ([]) 등은 C 문법이 아니므로
+     gcp_ocr_min_local.c 하단 주석으로 보존
