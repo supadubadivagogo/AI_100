@@ -2,6 +2,8 @@
 import argparse
 import math
 import re
+import os
+import sys
 from dataclasses import dataclass
 from fractions import Fraction
 from typing import Dict, List, Optional, Tuple
@@ -203,9 +205,16 @@ def strip_particle(word: str) -> str:
     return w
 
 
+def normalize_recipe_name(name: str) -> str:
+    n = name.strip()
+    if n.endswith("레시피"):
+        n = n[: -len("레시피")].rstrip()
+    return n
+
+
 def parse_condition(text: str) -> Optional[Tuple[str, str, str]]:
     # form 1: 만약 A가 B보다 내용물이 ...면:
-    m = re.match(r"^만약\s+(.+?)가\s+(.+?)보다\s+내용물이\s+(.+?)면:\s*$", text)
+    m = re.match(r"^만약\s+(.+?)(?:가|이)\s+(.+?)보다\s+내용물이\s+(.+?)면:?\s*$", text)
     if m:
         left = m.group(1).strip()
         right = m.group(2).strip()
@@ -213,7 +222,7 @@ def parse_condition(text: str) -> Optional[Tuple[str, str, str]]:
         return left, comp, right
 
     # form 2: 만약 A와 B의 내용물이 ...면:
-    m = re.match(r"^만약\s+(.+?)(?:와|과)\s+(.+?)의\s+내용물이\s+(.+?)면:\s*$", text)
+    m = re.match(r"^만약\s+(.+?)(?:와|과)\s+(.+?)의\s+내용물이\s+(.+?)면:?\s*$", text)
     if m:
         left = m.group(1).strip()
         right = m.group(2).strip()
@@ -239,7 +248,7 @@ def cmp_to_op(comp: str) -> str:
     return "?"
 
 
-def parse_program(lines: List[str]) -> Program:
+def parse_program(lines: List[str], unknowns: Optional[List[Tuple[int, str]]] = None) -> Program:
     ingredients: Dict[str, Expr] = {}
     recipes: Dict[str, List] = {}
     main: List = []
@@ -319,20 +328,20 @@ def parse_program(lines: List[str]) -> Program:
 
         m = re.match(r"^(.+?)\s+레시피를\s+만든다\.$", s)
         if m:
-            name = m.group(1).strip()
+            name = normalize_recipe_name(m.group(1))
             current_block().append(CallStmt(name=name, times=1, line=idx))
             continue
 
         m = re.match(r"^(.+?)\s*(을|를)\s*(\d+)번\s+만든다\.$", s)
         if m:
-            name = strip_particle(m.group(1))
+            name = normalize_recipe_name(strip_particle(m.group(1)))
             times = int(m.group(3))
             current_block().append(CallStmt(name=name, times=times, line=idx))
             continue
 
         m = re.match(r"^(.+?)\s*(을|를)\s+만든다\.$", s)
         if m:
-            name = strip_particle(m.group(1))
+            name = normalize_recipe_name(strip_particle(m.group(1)))
             current_block().append(CallStmt(name=name, times=1, line=idx))
             continue
 
@@ -371,7 +380,8 @@ def parse_program(lines: List[str]) -> Program:
             current_block().append(OutputStmt(dish=dish, line=idx))
             continue
 
-        # ignore labels or comments
+        if unknowns is not None:
+            unknowns.append((idx, s))
         continue
 
     return Program(ingredients=ingredients, recipes=recipes, main=main)
@@ -397,10 +407,31 @@ def eval_condition(left: Expr, op: str, right: Expr) -> bool:
     raise EvalError(f"unknown operator: {op}")
 
 
-def execute(program: Program, trace: TraceConfig) -> List[Tuple[str, Expr]]:
+def format_dishes(dishes: Dict[str, Expr]) -> str:
+    if not dishes:
+        return "<empty>"
+    parts = []
+    for name in sorted(dishes):
+        val = dishes[name].eval_int()
+        parts.append(f"{name}={val if val is not None else dishes[name]}")
+    return ", ".join(parts)
+
+
+def safe_filename(text: str) -> str:
+    return re.sub(r"[\\/:*?\"<>| ]+", "_", text).strip("_")
+
+
+def execute(
+    program: Program,
+    trace: TraceConfig,
+    progress_every: int = 0,
+    progress_lines: Optional[List[str]] = None,
+    snapshot_dir: Optional[str] = None,
+) -> List[Tuple[str, Expr]]:
     dishes: Dict[str, Expr] = {}
     outputs: List[Tuple[str, Expr]] = []
     call_stack: List[str] = []
+    exec_steps = 0
 
     def get_dish(name: str) -> Expr:
         return dishes.get(name, Const(0))
@@ -421,6 +452,18 @@ def execute(program: Program, trace: TraceConfig) -> List[Tuple[str, Expr]]:
         items = ", ".join(f"{k}={dishes[k]}" for k in sorted(dishes))
         print(f"TRACE {scope}: {label} | {items}")
         trace.lines += 1
+
+    def log_progress(stmt_line: int) -> None:
+        nonlocal exec_steps
+        exec_steps += 1
+        if not progress_every:
+            return
+        if exec_steps % progress_every != 0:
+            return
+        msg = f"현재 {exec_steps}행 실행 중 (src {stmt_line}): {format_dishes(dishes)}"
+        print(msg)
+        if progress_lines is not None:
+            progress_lines.append(msg)
 
     def exec_block(block: List) -> None:
         for stmt in block:
@@ -446,6 +489,18 @@ def execute(program: Program, trace: TraceConfig) -> List[Tuple[str, Expr]]:
                     set_dish(stmt.dish, floor_div(get_dish(stmt.dish), divisor))
             elif isinstance(stmt, OutputStmt):
                 outputs.append((stmt.dish, get_dish(stmt.dish)))
+                if snapshot_dir is not None:
+                    idx = len(outputs)
+                    dish_name = safe_filename(stmt.dish)
+                    file_name = f"output_{idx}_{dish_name}_line_{stmt.line}.log"
+                    path = os.path.join(snapshot_dir, file_name)
+                    with open(path, "w", encoding="utf-8") as f:
+                        f.write(f"output[{idx}] {stmt.dish} line={stmt.line}\n")
+                        f.write(f"state: {format_dishes(dishes)}\n")
+                        if progress_lines:
+                            f.write("progress:\n")
+                            for line in progress_lines:
+                                f.write(line + "\n")
             elif isinstance(stmt, CallStmt):
                 if stmt.name not in program.recipes:
                     raise EvalError(f"unknown recipe '{stmt.name}' at line {stmt.line}")
@@ -470,6 +525,7 @@ def execute(program: Program, trace: TraceConfig) -> List[Tuple[str, Expr]]:
                     exec_block(stmt.else_block)
             else:
                 raise EvalError(f"unknown statement at line {getattr(stmt, 'line', '?')}")
+            log_progress(getattr(stmt, "line", 0))
 
     exec_block(program.main)
     return outputs
@@ -489,6 +545,10 @@ def main() -> None:
     parser.add_argument("--trace-max-depth", type=int, default=3, help="max call depth to trace")
     parser.add_argument("--trace-max-lines", type=int, default=2000, help="max trace lines to print")
     parser.add_argument("--trace-only", action="append", default=[], help="trace only these recipe names")
+    parser.add_argument("--progress-every", type=int, default=0, help="print state every N executed statements")
+    parser.add_argument("--snapshot-dir", default="", help="write progress snapshots on output to this directory")
+    parser.add_argument("--strict", action="store_true", help="fail on unparsed lines")
+    parser.add_argument("--strict-max-lines", type=int, default=50, help="max unparsed lines to print")
     args = parser.parse_args()
 
     overrides: Dict[str, int] = {}
@@ -502,8 +562,28 @@ def main() -> None:
         with open(path, "r", encoding="utf-8") as f:
             lines = f.readlines()
 
-        program = parse_program(lines)
+        unknowns: Optional[List[Tuple[int, str]]] = [] if args.strict else None
+        program = parse_program(lines, unknowns=unknowns)
+        if args.strict and unknowns:
+            print(f"UNPARSED lines ({len(unknowns)}):", file=sys.stderr)
+            for line_no, text in unknowns[: args.strict_max_lines]:
+                print(f"{line_no}: {text}", file=sys.stderr)
+            remaining = len(unknowns) - args.strict_max_lines
+            if remaining > 0:
+                print(f"... {remaining} more", file=sys.stderr)
+            raise SystemExit("unparsed lines found")
         apply_overrides(program.ingredients, overrides)
+
+        snapshot_dir = None
+        progress_lines = None
+        if args.snapshot_dir:
+            base_dir = args.snapshot_dir
+            if len(args.files) > 1:
+                stem = os.path.splitext(os.path.basename(path))[0]
+                base_dir = os.path.join(base_dir, stem)
+            os.makedirs(base_dir, exist_ok=True)
+            snapshot_dir = base_dir
+            progress_lines = []
 
         only = None
         if args.trace_only:
@@ -518,7 +598,13 @@ def main() -> None:
             max_lines=args.trace_max_lines,
             only=only,
         )
-        outputs = execute(program, trace)
+        outputs = execute(
+            program,
+            trace,
+            progress_every=args.progress_every,
+            progress_lines=progress_lines,
+            snapshot_dir=snapshot_dir,
+        )
 
         print(f"== {path} ==")
         for i, (dish, expr) in enumerate(outputs, start=1):
